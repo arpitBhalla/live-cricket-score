@@ -1,0 +1,58 @@
+*{
+    box-sizing: border-box;
+}
+.box{
+    background-color: #ccc;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    .inn{
+        flex:3;
+        padding: 1em;
+        display: flex;
+        align-items: center;
+        &.team-1{
+            justify-content: flex-start;
+            order:0;
+        }
+        &.team-2{
+            flex-direction: row-reverse;
+            justify-content: flex-start;
+            order:2;
+        }
+        .teamDesc{
+            display: flex;
+            flex-direction: column;
+            .teamName{
+                font-size: small;
+            }
+        }
+        .flagImg{
+            margin:0px 5px;
+            width: auto;
+            height: 2em;
+        }
+    }
+    
+    .status{
+        flex:2;
+        order:1;
+        .live{
+            margin: 2px;
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50px;
+            background-color: rgb(255, 74, 74);
+            animation: liveDot;
+            animation-iteration-count: infinite;
+            animation-duration: 1s;
+        }
+    }
+}
+    @keyframes liveDot{
+        0%{opacity: 1;}
+        50%{opacity: 0;}
+        100%{opacity: 1;}
+    }
+    

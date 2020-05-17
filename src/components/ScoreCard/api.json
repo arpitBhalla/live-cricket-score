@@ -1,0 +1,17 @@
+{
+    "batting":{
+        "players":[
+            {
+                "name":"A. Bhalla",
+                "src":"https://sass-lang.com/assets/img/logos/logo-b6e1ef6e.svg",
+                "runs":49,
+                "four":4,
+                "six":6,
+                "rate":"324.00",
+                "stat":"Not Out"
+            }
+        ],
+        "extra":"7(w6, b1)",
+        "total":"296(7wkt, 50ovr)"
+    }
+}

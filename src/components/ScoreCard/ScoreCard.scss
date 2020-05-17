@@ -1,0 +1,52 @@
+.scoreCard {
+    padding: 10px;
+
+    .batting {
+        .extra{
+            display: flex;
+            
+        }
+        .list {
+            display: flex;
+            align-items: center;
+
+            .score {
+                text-align: center;
+                flex: .5;
+            }
+
+            .player {
+                flex: 4;
+                justify-content: flex-start;
+                display: flex;
+                align-items: center;
+
+                .image {
+                    margin: 4px;
+                    flex: .01;
+                    height: 40px;
+                    width: 40px;
+                    border-radius: 50px;
+                    border: 3px #ccc solid;
+                }
+
+                .playerInfo {
+                    display: flex;
+                    flex: 1;
+                    flex-direction: column;
+
+                    .playerName {
+                        margin: 3px;
+                    }
+
+                    .playerStatus {
+                        font-size: smaller;
+                        border-radius: 10px;
+                        border: 1px #ccc solid;
+                        padding: 3px
+                    }
+                }
+            }
+        }
+    }
+}
