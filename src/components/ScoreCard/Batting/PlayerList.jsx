@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 
 const Player=({name,src,stat})=>{
     return(
@@ -15,7 +16,8 @@ const Player=({name,src,stat})=>{
         </div>
     )
 }
-const List=({runs,four,six,rate,...info})=>{
+
+const PlayerList =({runs,four,six,rate,...info})=>{
     return(
         <div className="list">
             <Player {...info}/>
@@ -26,38 +28,4 @@ const List=({runs,four,six,rate,...info})=>{
         </div>
     )
 }
-
-const ListHead=()=>{
-    return(
-    <div className="list">
-        <div className="player">
-            Batting
-        </div>
-        <div className="score">R</div>
-        <div className="score">4s</div>
-        <div className="score">6s</div>
-        <div className="score">S/R</div>
-    </div>
-    )
-}
-const Extra=()=>{
-    return(
-        <div className="extra">
-
-        </div>
-    )
-}
-const Batting = ({stat}) => {
-    const {players}=stat
-    return (
-        <div className="batting">
-            <ListHead/>
-            <hr/>
-        {players.map((v,i)=><List key={i} {...v}/>)}
-            <hr/>
-            <Extra/>
-        </div>
-    );
-}
-
-export default Batting;
+export default PlayerList

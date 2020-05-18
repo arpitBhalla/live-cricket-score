@@ -1,13 +1,15 @@
 import React from 'react';
 import "./ScoreCard.scss"
-import Batting from './Batting'
-import Bowl from './Bowling'
-import API from './api.json'
+import Batting from './Batting/Batting'
+import Bowling from './Bowling/Bowling'
 
-const ScoreCard = () => {
+const ScoreCard = ({API}) => {
+    if(!API)
+    return(<div>Internal Error</div>)
     return (
         <div className="scoreCard">
             <Batting stat={API.batting}/>
+            <Bowling stat={API.bowling}/>
         </div>
     );
 }

@@ -1,0 +1,76 @@
+{
+    "matchID": "abcde",
+    "matchTime": "1234567",
+    "matchName": "IND vs NZ",
+    "matchVenue": "Mumbai",
+    "matchOver": "10",
+    "matchresult":null,
+    "team1": {
+        "name": "IND",
+        "flag":"https://sass-lang.com/assets/img/logos/logo-b6e1ef6e.svg",
+        "batting": {
+            "players": [{
+                "name": "A. Bhalla",
+                "src": "https://sass-lang.com/assets/img/logos/logo-b6e1ef6e.svg",
+                "runs": 49,
+                "four": 4,
+                "six": 6,
+                "rate": "324.00",
+                "stat": "Not Out"
+            }],
+            "extra": "7(w6, b1)",
+            "total": "296(7wkt, 50ovr)",
+            "stat": {
+                "runs": "296",
+                "wkt": "7",
+                "ovr": "50"
+            }
+
+        },
+        "bowling": {
+            "player": [{
+                "name": "Arpit Bhalla",
+                "src": "https://sass-lang.com/assets/img/logos/logo-b6e1ef6e.svg",
+                "over": "4",
+                "maiden": "2",
+                "runs": "12",
+                "wkt": "2",
+                "eco": "12"
+            }]
+        }
+    },
+    "team2": {
+        "name": "NZ",
+        "flag":"https://sass-lang.com/assets/img/logos/logo-b6e1ef6e.svg",
+        "batting": {
+            "players": [{
+                "name": "A. Bhalla",
+                "src": "https://sass-lang.com/assets/img/logos/logo-b6e1ef6e.svg",
+                "runs": 49,
+                "four": 4,
+                "six": 6,
+                "rate": "324.00",
+                "stat": "Not Out"
+            }],
+            "extra": "7(w6, b1)",
+            "total": "296(7wkt, 50ovr)",
+            "stat": {
+                "runs": "296",
+                "wkt": "7",
+                "ovr": "50"
+            }
+
+        },
+        "bowling": {
+            "player": [{
+                "name": "Arpit Bhalla",
+                "src": "https://sass-lang.com/assets/img/logos/logo-b6e1ef6e.svg",
+                "over": "4",
+                "maiden": "2",
+                "runs": "12",
+                "wkt": "2",
+                "eco": "12"
+            }]
+        }
+    }
+}

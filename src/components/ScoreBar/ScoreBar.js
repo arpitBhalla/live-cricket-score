@@ -1,17 +1,17 @@
 import React from 'react';
-import "./Topbar.scss";
+import "./ScoreBar.scss";
 
 const Runs=({score})=>{
     if(!score)
         return<span>Yet to Bat</span>
-    const {r,wkt,o}=score
+    const {runs,wkt,ovr}=score
     return(
         <div className="runs">
             <div className="run">
-                {r}/{wkt}
+                {runs}/{wkt}
             </div>
             <div className="over">
-                ({o})
+                ({ovr})
             </div>
         </div>
     )
@@ -31,8 +31,7 @@ const Team=({team,teamNo})=>{
         </div>
     )
 }
-const Topbar = (props) => {
-    const {team1,team2,result}=props
+const Topbar = ({team1,team2,result}) => {
     return (
         <div className="box">
             <Team team={team1} teamNo="1"/>
