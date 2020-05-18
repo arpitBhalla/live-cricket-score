@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
 import './index.css';
-import Match from "./screens/Match";
+import Match from "./screens/Match/Match";
 import {
   BrowserRouter as Router,
   Switch,

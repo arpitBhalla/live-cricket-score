@@ -1,13 +1,16 @@
 import React,{useState} from 'react';
-import ScoreBar from "../components/ScoreBar/ScoreBar";
-import ScoreCard from "../components/ScoreCard/ScoreCard";
-import MatchAPI from "./match.json";
+import ScoreBar from "../../components/ScoreBar/ScoreBar";
+import ScoreCard from "../../components/ScoreCard/ScoreCard";
+import Tab from "../../components/Tabs/Tabs";
+import MatchAPI from "../../match.json";
 import {useParams,Redirect} from 'react-router-dom'
+import "./Match.scss"
 // import Socket from 'socket.io-client'
 // const ENDPOINT="./"
 
 const Match = () => {
     const [match,setMatch]=useState(MatchAPI)
+    const [selected,setSelected]=useState(0)
     const {matchID} = useParams()
     if(!matchID.match(/^[a-zA-Z0-9]{5}$/))
         return<Redirect to="/invalid"/>
@@ -22,10 +25,9 @@ const Match = () => {
     //     console.log(e)
     // })
     // const io=Socket()
-    let {team1,team2,matchresult}=MatchAPI
-
+    let {team1,team2,matchresult}=match
     return (
-        <div>
+        <div className="root">
         <ScoreBar 
         team1={{
             score:team1.batting.stat,
@@ -39,7 +41,15 @@ const Match = () => {
         }}
         result={matchresult}
         />
-        <ScoreCard API={MatchAPI.team1}/>
+        <Tab 
+         team={selected}
+         setTeam={setSelected}
+        name={{
+            team1:team1.name,
+            team2:team2.name
+        }}
+        />
+        <ScoreCard API={MatchAPI[!selected?"team1":"team2"]}/>
         </div>
     );
 }

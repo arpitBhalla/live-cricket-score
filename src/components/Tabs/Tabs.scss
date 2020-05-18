@@ -1,0 +1,17 @@
+.tabs{
+    display: flex;   
+    align-items: center;
+    .tab{
+        cursor: pointer;
+        flex:1;
+        padding: 10px;
+        text-align: center;
+        border-bottom: 1px transparent solid;
+        background-color: #eee;
+        &.active{
+            transition: .3s;
+            border-bottom: 1px #ccc solid;
+            background-color: #ccc;
+        }
+    }
+}
