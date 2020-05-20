@@ -4,3 +4,4 @@ Live Cricket Scoreboard
 ## cd backend
 ## npm start
 
+Made by Arpit Bhalla
