@@ -7,7 +7,7 @@ const Bowling = ({stat}) => {
         <div>
             <PlayerHead/>
             <hr/>
-            {stat.player.map((v,i)=><List key={i} {...v}/>)}
+            {Object.values(stat.player).map((v,i)=><List key={i} {...v}/>)}
         </div>
     );
 }

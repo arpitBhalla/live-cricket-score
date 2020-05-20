@@ -1,0 +1,21 @@
+$size:50px;
+.loading {
+    display: flex;           /* establish flex container */
+    flex-direction: row;  /* make main axis vertical */
+    justify-content: center; /* center items vertically, in this case */
+    align-items: center;     /* center items horizontally, in this case */
+    height: 100vh;
+    .loadBar{
+        width: $size;
+        height: $size;
+        animation: effect 1s linear infinite; 
+        border: 5px solid transparent;
+        border-top:5px solid #777 ;
+        border-radius: 50%;
+    }
+}
+
+@keyframes effect{
+    0%{transform: rotate(0deg);}
+    100%{transform: rotate(360deg);}
+}

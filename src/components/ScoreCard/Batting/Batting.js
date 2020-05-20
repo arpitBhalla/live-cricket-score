@@ -29,7 +29,7 @@ const Batting = ({stat}) => {
             <hr/>
             <ListHead/>
             <hr/>
-        {players.map((v,i)=><List key={i} {...v}/>)}
+        {Object.values(players).map((v,i)=><List key={i} {...v}/>)}
             <hr/>
             <End name="Extras" content={extra} />
             <End name="Total" content={total} />

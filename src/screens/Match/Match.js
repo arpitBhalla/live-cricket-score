@@ -1,31 +1,39 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import ScoreBar from "../../components/ScoreBar/ScoreBar";
 import ScoreCard from "../../components/ScoreCard/ScoreCard";
 import Tab from "../../components/Tabs/Tabs";
-import MatchAPI from "../../match.json";
+import Loading from "../../components/Loading/loading";
 import {useParams,Redirect} from 'react-router-dom'
 import "./Match.scss"
-// import Socket from 'socket.io-client'
-// const ENDPOINT="./"
+import Socket from 'socket.io-client'
 
 const Match = () => {
-    const [match,setMatch]=useState(MatchAPI)
+    const [matchData,setMatchData]=useState({})
     const [selected,setSelected]=useState(0)
+    const [loading,setLoading]=useState(true)
     const {matchID} = useParams()
+    
+    const _fetch=()=>{
+        const io=Socket()
+        io.on("init",data=>{
+            setMatchData(data)
+            document.title=data.matchName
+            setLoading(false)
+        })
+        io.on("play",data=>{
+            setMatchData({...data})
+        })
+
+    }
+    useEffect(()=>{
+        _fetch()
+    },[])
+
     if(!matchID.match(/^[a-zA-Z0-9]{5}$/))
         return<Redirect to="/invalid"/>
-
-    // fetch(`${ENDPOINT}?id=${matchID}`)
-    // // .then(res=>res.json())
-    // .then(res=>{
-    //     console.log(res)
-    //     // setMatch(res)
-    // })
-    // .catch(e=>{
-    //     console.log(e)
-    // })
-    // const io=Socket()
-    let {team1,team2,matchresult}=match
+    if(loading)
+        return<Loading/>
+    let {team1,team2,matchresult}=matchData
     return (
         <div className="root">
         <ScoreBar 
@@ -49,7 +57,7 @@ const Match = () => {
             team2:team2.name
         }}
         />
-        <ScoreCard API={MatchAPI[!selected?"team1":"team2"]}/>
+        <ScoreCard API={!selected?team1:team2}/>
         </div>
     );
 }
