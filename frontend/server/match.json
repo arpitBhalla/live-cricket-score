@@ -5,6 +5,7 @@
     "matchVenue": "Mumbai",
     "matchOver": "10",
     "matchresult": null,
+    "matchResult": null,
     "team1": {
         "name": "IND",
         "flag": "https://sass-lang.com/assets/img/logos/logo-b6e1ef6e.svg",
