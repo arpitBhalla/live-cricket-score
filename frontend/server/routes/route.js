@@ -1,11 +1,10 @@
 var express = require('express')
 var router = express.Router()
 
-let model = require("./../Models/Match")
-// let model
+let model
 const response = require('./sendResponse')
 
-// router.use((req, res, next) => next())
+router.use((req, res, next) => next())
 
 router.param("mode", (req, res, next, mode) => {
   switch (mode) {
@@ -13,7 +12,7 @@ router.param("mode", (req, res, next, mode) => {
       model = require("./../Models/Match")
       break;
     case 't':
-      model = require("./../Models/Match")
+      model = require("./../Models/Team")
       break;
     case 'p':
       model = require("./../Models/Player")
@@ -25,9 +24,12 @@ router.param("mode", (req, res, next, mode) => {
   next()
 })
 
-router
-  .post("/:mode(m|t|p)", (req, res) => {
+router.route("/:mode(m|t|p)")
+  .post((req, res) => {
     model.create(req.body, (err, data) => response(res, err, data))
+  })
+  .get((req, res) => {
+    model.find({},{}, (err, data) => response(res, err, data))
   })
 
 router.route("/:mode(m|t|p)/:id")
@@ -35,7 +37,7 @@ router.route("/:mode(m|t|p)/:id")
     model.findById(req.params.id, (err, data) => response(res, err, data))
   })
   .put((req, res) => {
-    model.findByIdAndUpdate(req.param.id, req.body, (err, data) => response(res, err, data))
+    model.findByIdAndUpdate(req.params.id, req.body, (err, data) => response(res, err, data))
   })
   .delete((req, res) => {
     model.findByIdAndDelete(req.params.id, (err, data) => response(res, err, data))

@@ -14,9 +14,9 @@ ReactDOM.render(
       <Router>
           <Switch>
               <Route exact path="/">{"Home"}</Route>
+              <Route exact path="/admin">{"ADmin Panel"}</Route>
               <Route exact path="/m/:matchID"><Match/></Route>
-              <Route exact path="/m/:matchID/admin">{"Admin"}</Route>
-              <Route exact path="/invalid">{"Invalid Match Code"}</Route>
+              <Route exact path="/m/:matchID/console">{"Match Console Panel"}</Route>
               <Route>{"404 Not Found"}</Route>
           </Switch>
       </Router>

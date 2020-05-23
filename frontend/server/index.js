@@ -8,8 +8,7 @@ const io = require('socket.io')(http);
 
 const Router=require("./routes/route")
 app.use(bodyParser.json());
-app.use("/api/v1/",Router);
-
+app.use("/api/v1",Router);
 // app.use(express.static(__dirname + '/public'));
 const options = {
     useNewUrlParser: true,
@@ -25,8 +24,8 @@ const options = {
 const uri='mongodb://localhost/match'
 mongoose.connect(uri, options)
 
-const SocketAPI=require("./Socket")
-io.on("connection",SocketAPI)
+// const SocketAPI=require("./Socket")
+// io.on("connection",SocketAPI)
 
 const port = process.env.PORT || 5000;
 http.listen(port, () => {
