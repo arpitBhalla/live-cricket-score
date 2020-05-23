@@ -8,7 +8,7 @@ const io = require('socket.io')(http);
 
 const Router=require("./routes/route")
 app.use(bodyParser.json());
-app.use(Router);
+app.use("/api/v1",Router);
 
 // app.use(express.static(__dirname + '/public'));
 const options = {
@@ -28,7 +28,7 @@ mongoose.connect(uri, options)
 const SocketAPI=require("./Socket")
 io.on("connection",SocketAPI)
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 8000;
 http.listen(port, () => {
     console.log('listening on *:' + port);
 });
